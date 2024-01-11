@@ -38,6 +38,9 @@
                         placeholder="Enter Brand" />
                 </div>
             </div>
+            <div class="mt-[2.12rem]">
+                <ProductTable />
+            </div>
         </div>
     </MainLayout>
 </template>
@@ -47,4 +50,5 @@ import MainLayout from '../layouts/MainLayout.vue';
 import SearchInput from '../components/Dashboard/SearchInput.vue';
 import BellIcon from '../components/icons/BellIcon.vue';
 import NotificationIcon from '../components/icons/NotificationIcon.vue';
+import ProductTable from '../components/Dashboard/ProductTable.vue';
 </script>
