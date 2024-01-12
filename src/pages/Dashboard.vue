@@ -25,7 +25,7 @@
                     <label class="text-[#000] font-poppins text-base font-normal">
                         Title
                     </label>
-                    <input
+                    <input v-model="searchTitle" @input="debouncedSearch"
                         class="py-[0.81rem] pl-[1.5rem] rounded-[0.1875rem] bg-[#FFF] border [border-color:rgba(19,19,19,0.25)] placeholder:text-base placeholder:font-poppins placeholder:font-light"
                         placeholder="Enter Title" />
                 </div>
@@ -33,7 +33,7 @@
                     <label class="text-[#000] font-poppins text-base font-normal">
                         Brand
                     </label>
-                    <input
+                    <input v-model="searchBrand" @input="debouncedSearch"
                         class="py-[0.81rem] pl-[1.5rem] rounded-[0.1875rem] bg-[#FFF] border [border-color:rgba(19,19,19,0.25)] placeholder:text-base placeholder:font-poppins placeholder:font-light"
                         placeholder="Enter Brand" />
                 </div>
@@ -54,11 +54,33 @@ import ProductTable from '../components/Dashboard/ProductTable.vue';
 import { onMounted, ref } from 'vue';
 import { IApiResponse, IProduct } from '../types';
 import fetchHelper from '../utils/fetchHelper';
+import debounce from 'lodash.debounce';
 
 const products = ref<IProduct[]>([]);
+const searchTitle = ref('');
+const searchBrand = ref('');
+
+const debouncedSearch = debounce(() => {
+    handleSearch();
+}, 300);
+
+const handleSearch = async () => {
+    const query = [];
+    if (searchTitle.value) {
+        query.push(`${encodeURIComponent(searchTitle.value)}`);
+    }
+    if (searchBrand.value) {
+        query.push(`${encodeURIComponent(searchBrand.value)}`);
+    }
+    await fetchProducts(query.join('&'));
+};
+
+const fetchProducts = async (query = '') => {
+    const data: IApiResponse = await fetchHelper(`https://dummyjson.com/products/search?q=${query}`);
+    products.value = data.products;
+};
 
 onMounted(async () => {
-    const data: IApiResponse = await fetchHelper('https://dummyjson.com/products');
-    products.value = data.products;
+    await fetchProducts();
 });
 </script>
