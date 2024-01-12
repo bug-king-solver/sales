@@ -9,7 +9,9 @@
                                 <BasicCheckbox />
                                 Title
                             </div>
-                            <SortIcon />
+                            <i @click="toggleSort('title')" class="cursor-pointer">
+                                <SortIcon />
+                            </i>
                         </th>
                         <th scope="col" class="pb-6">
                             <div class="flex items-center justify-start">
@@ -18,10 +20,10 @@
                         </th>
                         <th scope="col" class="pb-6">
                             <div class="flex items-center justify-start">
-                                Brand
-                                <a href="#">
+                                brand
+                                <i @click="toggleSort('brand')" class="cursor-pointer">
                                     <SortIcon />
-                                </a>
+                                </i>
                             </div>
                         </th>
                         <th scope="col" class="pb-6">
@@ -52,14 +54,49 @@
 import SortIcon from '../icons/SortIcon.vue';
 import BasicCheckbox from '../../components/common/BasicCheckbox.vue';
 import ProductTableItem from './ProductTableItem.vue';
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import fetchHelper from '../../utils/fetchHelper';
 import { IProduct, IApiResponse } from '../../types';
 
+type ProductKeys = 'title' | 'brand' | 'price' | 'stock' | 'rating';
+
 const products = ref<IProduct[]>([]);
+const sortState = reactive({
+    key: '' as ProductKeys | '',
+    isAscending: true
+});
+
+const toggleSort = (key: ProductKeys) => {
+    if (sortState.key === key) {
+        sortState.isAscending = !sortState.isAscending;
+    } else {
+        sortState.key = key;
+        sortState.isAscending = true;
+    }
+    sortProducts();
+};
+
+function isKeyOfProduct(key: string): key is keyof IProduct {
+    return ['id', 'title', 'category', 'brand', 'price', 'stock', 'rating'].includes(key);
+}
+
+const sortProducts = () => {
+    products.value.sort((a, b) => {
+        if (isKeyOfProduct(sortState.key)) {
+            if (a[sortState.key] < b[sortState.key]) {
+                return sortState.isAscending ? -1 : 1;
+            }
+            if (a[sortState.key] > b[sortState.key]) {
+                return sortState.isAscending ? 1 : -1;
+            }
+        }
+        return 0;
+    });
+};
 
 onMounted(async () => {
     const data: IApiResponse = await fetchHelper('https://dummyjson.com/products');
     products.value = data.products;
+    console.log(data);
 })
 </script>
