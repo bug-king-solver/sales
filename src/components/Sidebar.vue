@@ -24,7 +24,7 @@
             </router-link>
             <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
                 <MedicineOrderIcon />
-                <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
+                <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer whitespace-nowrap">
                     Medicine Order
                 </label>
             </router-link>
@@ -47,14 +47,10 @@
                 </label>
             </router-link>
         </div>
-        <div>
-            <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
-                <HelpIcon />
-                <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
-                    Help
-                </label>
-            </router-link>
-        </div>
+        <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem] mt-auto">
+            <HelpIcon />
+            <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">Help</label>
+        </router-link>
     </div>
 </template>
 
