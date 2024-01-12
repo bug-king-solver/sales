@@ -54,19 +54,16 @@
 import SortIcon from '../icons/SortIcon.vue';
 import BasicCheckbox from '../../components/common/BasicCheckbox.vue';
 import ProductTableItem from './ProductTableItem.vue';
-import { onMounted, ref, watch } from 'vue';
-import fetchHelper from '../../utils/fetchHelper';
-import { IProduct, IApiResponse } from '../../types';
+import { watch } from 'vue';
+import { IProduct } from '../../types';
 import { useSorting } from '../../composables';
 
-const products = ref<IProduct[]>([]);
+const props = defineProps<{
+    products: IProduct[];
+}>();
+
 const { sortState, toggleSort, sortArray } = useSorting<IProduct>();
 
-onMounted(async () => {
-    const data: IApiResponse = await fetchHelper('https://dummyjson.com/products');
-    products.value = data.products;
-});
-
-watch(() => sortState, () => sortArray(products.value), { deep: true });
+watch(() => sortState, () => sortArray(props.products), { deep: true });
 
 </script>

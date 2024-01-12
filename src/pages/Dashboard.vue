@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="mt-[2.12rem] flex-grow">
-                <ProductTable />
+                <ProductTable :products="products" />
             </div>
         </div>
     </MainLayout>
@@ -51,4 +51,14 @@ import SearchInput from '../components/Dashboard/SearchInput.vue';
 import BellIcon from '../components/icons/BellIcon.vue';
 import NotificationIcon from '../components/icons/NotificationIcon.vue';
 import ProductTable from '../components/Dashboard/ProductTable.vue';
+import { onMounted, ref } from 'vue';
+import { IApiResponse, IProduct } from '../types';
+import fetchHelper from '../utils/fetchHelper';
+
+const products = ref<IProduct[]>([]);
+
+onMounted(async () => {
+    const data: IApiResponse = await fetchHelper('https://dummyjson.com/products');
+    products.value = data.products;
+});
 </script>
