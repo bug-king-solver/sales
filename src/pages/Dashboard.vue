@@ -1,6 +1,6 @@
 <template>
     <MainLayout>
-        <div class="bg-[#F8F8F8] w-full pt-[3.51rem] px-[2.5rem] pb-[2.06rem]">
+        <div class="bg-[#F8F8F8] w-full pt-[3.51rem] px-[2.5rem] pb-[2.06rem] flex flex-col h-screen">
             <div class="flex justify-between items-center">
                 <SearchInput />
                 <div class="flex gap-5">
@@ -38,7 +38,7 @@
                         placeholder="Enter Brand" />
                 </div>
             </div>
-            <div class="mt-[2.12rem]">
+            <div class="mt-[2.12rem] flex-grow">
                 <ProductTable />
             </div>
         </div>

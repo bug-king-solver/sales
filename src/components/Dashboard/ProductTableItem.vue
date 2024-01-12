@@ -4,33 +4,33 @@
             <div class="flex justify-start gap-4">
                 <BasicCheckbox />
                 <a href="#" class="text-[#0B63F8] font-poppins text-base font-normal">
-                    iPhone 9
+                    {{ product.title }}
                 </a>
             </div>
         </td>
         <td scope="col" class="pb-6 pt-[1.88rem]">
             <div class="flex items-center justify-start">
-                smartphones
+                {{ product.category }}
             </div>
         </td>
         <td scope="col" class="pb-6 pt-[1.88rem]">
             <div class="flex items-center justify-start">
-                Samsung
+                {{ product.brand }}
             </div>
         </td>
         <td scope="col" class="pb-6 pt-[1.88rem]">
             <div class="flex items-center justify-start">
-                $100
+                ${{ product.price }}
             </div>
         </td>
         <td scope="col" class="pb-6 pt-[1.88rem]">
             <div class="flex items-center justify-start">
-                50
+                {{ product.stock }}
             </div>
         </td>
         <td scope="col" class="pb-6 pt-[1.88rem]">
             <div class="flex items-center justify-start">
-                $000
+                ${{ product.rating }}
             </div>
         </td>
     </tr>
@@ -38,4 +38,9 @@
 
 <script setup lang="ts">
 import BasicCheckbox from '../common/BasicCheckbox.vue';
+import { IProduct } from '../../types';
+
+defineProps<{
+    product: IProduct
+}>();
 </script>
