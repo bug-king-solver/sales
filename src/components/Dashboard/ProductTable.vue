@@ -45,7 +45,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ProductTableItem v-for="product in products" :key="product.id" :product="product"
+                    <tr v-if="isLoading">
+                        <td colspan="6" class="py-10 text-center">
+                            <DefaultSpinner />
+                        </td>
+                    </tr>
+                    <ProductTableItem v-else v-for="product in products" :key="product.id" :product="product"
                         :selectedProducts="selectedProducts" />
                 </tbody>
             </table>
@@ -58,9 +63,11 @@ import ProductTableItem from './ProductTableItem.vue';
 import { ref, watch } from 'vue';
 import { IProduct } from '../../types';
 import { useSorting } from '../../composables';
+import DefaultSpinner from '../common/DefaultSpinner.vue';
 
 const props = defineProps<{
     products: IProduct[];
+    isLoading: boolean
 }>();
 
 const checked = ref<boolean>(false);

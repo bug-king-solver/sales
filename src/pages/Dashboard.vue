@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="mt-[2.12rem] flex-grow">
-                <ProductTable :products="products" />
+                <ProductTable :products="products" :isLoading="isLoading" />
             </div>
         </div>
     </MainLayout>
@@ -59,6 +59,7 @@ import debounce from 'lodash.debounce';
 const products = ref<IProduct[]>([]);
 const searchTitle = ref('');
 const searchBrand = ref('');
+const isLoading = ref(false);
 
 const debouncedSearch = debounce(() => {
     handleSearch();
@@ -81,6 +82,8 @@ const fetchProducts = async (query = '') => {
 };
 
 onMounted(async () => {
+    isLoading.value = true;
     await fetchProducts();
+    isLoading.value = false;
 });
 </script>
