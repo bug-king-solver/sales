@@ -2,7 +2,8 @@
     <tr class="border-b border-[#F2F2F2] text-[#000] font-poppins text-base font-normal text-opacity-65">
         <td scope="col" class="pb-6  pt-[1.88rem] pl-6 flex items-center">
             <div class="flex justify-start gap-4">
-                <BasicCheckbox />
+                <input id="default-checkbox" type="checkbox" value="" :checked="props.selectedProducts.includes(product.id)"
+                    class="w-6 h-6 border [border-color:rgba(19,19,19,0.25)]">
                 <a href="#" class="text-[#0B63F8] font-poppins text-base font-normal">
                     {{ props.product.title }}
                 </a>
@@ -37,10 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import BasicCheckbox from '../common/BasicCheckbox.vue';
 import { IProduct } from '../../types';
 
 const props = defineProps<{
-    product: IProduct
+    product: IProduct,
+    selectedProducts: number[]
 }>();
 </script>
