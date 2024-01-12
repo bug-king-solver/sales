@@ -10,44 +10,44 @@
                     Dashboard
                 </label>
             </router-link>
-            <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
+            <router-link to="/lab-test" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
                 <LabTestIcon />
                 <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                     Lab Test
                 </label>
             </router-link>
-            <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
+            <router-link to="/appointment" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
                 <AppointmentIcon />
                 <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                     Appointment
                 </label>
             </router-link>
-            <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
+            <router-link to="/medicine-order" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
                 <MedicineOrderIcon />
                 <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer whitespace-nowrap">
                     Medicine Order
                 </label>
             </router-link>
-            <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
+            <router-link to="/message" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
                 <MessageIcon />
                 <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                     Message
                 </label>
             </router-link>
-            <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
+            <router-link to="/payment" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
                 <PaymentIcon />
                 <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                     Payment
                 </label>
             </router-link>
-            <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
+            <router-link to="/settings" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]">
                 <SettingsIcon />
                 <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                     Settings
                 </label>
             </router-link>
         </div>
-        <router-link to="/" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem] mt-auto">
+        <router-link to="/help" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem] mt-auto">
             <HelpIcon />
             <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">Help</label>
         </router-link>
