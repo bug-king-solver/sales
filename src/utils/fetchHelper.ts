@@ -1,4 +1,4 @@
-type FetchOptions = {
+export type FetchOptions = {
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE',
     headers?: HeadersInit,
     body?: BodyInit | null,
