@@ -1,31 +1,6 @@
 <template>
-    <MainLayout v-slot="{ toggleSidebar }">
-        <div class="bg-[#F8F8F8] w-full pt-[3.51rem] px-[2.5rem] pb-[2.06rem] flex flex-col h-screen">
-            <div class="flex justify-between items-center">
-                <div class="flex gap-5">
-                    <button class="text-slate-500 hover:text-slate-600 lg:hidden" @click.stop="toggleSidebar"
-                        aria-controls="sidebar" :aria-expanded="sidebarOpen">
-                        <span class="sr-only">Open sidebar</span>
-                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="5" width="16" height="2" />
-                            <rect x="4" y="11" width="16" height="2" />
-                            <rect x="4" y="17" width="16" height="2" />
-                        </svg>
-                    </button>
-                    <SearchInput />
-                </div>
-                <div class="flex gap-5">
-                    <div class="relative rounded-[0.1875rem] bg-[#FFF] p-[0.88rem]">
-                        <BellIcon />
-                        <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">
-                            <NotificationIcon />
-                        </div>
-                    </div>
-                    <div>
-                        <img src="../assets/avatar/Profile Avtar.png" alt="avatar" class="object-cover" />
-                    </div>
-                </div>
-            </div>
+    <MainLayout>
+        <div class="bg-[#F8F8F8] w-full px-[2.5rem] pb-[2.06rem] flex flex-col h-screen">
             <div class="mt-[2.74rem]">
                 <h1 class="text-[#000] font-poppins text-2xl font-medium">
                     Products Information
@@ -58,9 +33,6 @@
 
 <script setup lang="ts">
 import MainLayout from '../layouts/MainLayout.vue';
-import SearchInput from '../components/Dashboard/SearchInput.vue';
-import BellIcon from '../components/icons/BellIcon.vue';
-import NotificationIcon from '../components/icons/NotificationIcon.vue';
 import ProductTable from '../components/Dashboard/ProductTable.vue';
 import { onMounted, ref } from 'vue';
 import { IApiResponse, IProduct } from '../types';
@@ -71,7 +43,6 @@ const products = ref<IProduct[]>([]);
 const searchTitle = ref('');
 const searchBrand = ref('');
 const isLoading = ref(false);
-const sidebarOpen = ref(false);
 
 const debouncedSearch = debounce(() => {
     handleSearch();
