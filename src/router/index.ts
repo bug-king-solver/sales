@@ -7,12 +7,18 @@ import Message from '../pages/Message.vue';
 import Payment from '../pages/Payment.vue';
 import Settings from '../pages/Settings.vue';
 import Help from '../pages/Help.vue';
+import ProductDetail from '../components/Dashboard/ProductDetail.vue';
 
 const routes = [
   {
     path: '/',
     name: 'Dashboard',
     component: Dashboard
+  },
+  {
+    path: '/products/:productId',
+    name: 'ProductDetail',
+    component: ProductDetail
   },
   {
     path: '/lab-test',
