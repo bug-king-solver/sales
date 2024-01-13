@@ -30,21 +30,21 @@
                         </router-link>
                         <router-link to="/lab-test" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]"
                             :class="{ 'border-l-4 border-[#0B63F8] text-[#0B63F8]': $route.path === '/lab-test' }">
-                            <LabTestIcon />
+                            <LabTestIcon :isActive="$route.path === '/lab-test'" />
                             <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                                 Lab Test
                             </label>
                         </router-link>
                         <router-link to="/appointment" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]"
                             :class="{ 'border-l-4 border-[#0B63F8] text-[#0B63F8]': $route.path === '/appointment' }">
-                            <AppointmentIcon />
+                            <AppointmentIcon :isActive="$route.path === '/appointment'" />
                             <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                                 Appointment
                             </label>
                         </router-link>
                         <router-link to="/medicine-order" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]"
                             :class="{ 'border-l-4 border-[#0B63F8] text-[#0B63F8]': $route.path === '/medicine-order' }">
-                            <MedicineOrderIcon />
+                            <MedicineOrderIcon :isActive="$route.path === '/medicine-order'" />
                             <label
                                 class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer whitespace-nowrap">
                                 Medicine Order
@@ -52,21 +52,21 @@
                         </router-link>
                         <router-link to="/message" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]"
                             :class="{ 'border-l-4 border-[#0B63F8] text-[#0B63F8]': $route.path === '/message' }">
-                            <MessageIcon />
+                            <MessageIcon :isActive="$route.path === '/message'" />
                             <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                                 Message
                             </label>
                         </router-link>
                         <router-link to="/payment" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]"
                             :class="{ 'border-l-4 border-[#0B63F8] text-[#0B63F8]': $route.path === '/payment' }">
-                            <PaymentIcon />
+                            <PaymentIcon :isActive="$route.path === '/payment'" />
                             <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                                 Payment
                             </label>
                         </router-link>
                         <router-link to="/settings" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]"
                             :class="{ 'border-l-4 border-[#0B63F8] text-[#0B63F8]': $route.path === '/settings' }">
-                            <SettingsIcon />
+                            <SettingsIcon :isActive="$route.path === '/settings'" />
                             <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">
                                 Settings
                             </label>
@@ -76,7 +76,7 @@
                 <div class=" lg:hidden lg:sidebar-expanded:block 2xl:block  mt-auto">
                     <router-link to="/help" class="flex gap-4 pt-[0.44rem] pb-[0.5rem] pl-[2.56rem]"
                         :class="{ 'border-l-4 border-[#0B63F8] text-[#0B63F8]': $route.path === '/help' }">
-                        <HelpIcon />
+                        <HelpIcon :isActive="$route.path === '/help'" />
                         <label class="font-poppins text-base font-normal tracking-[0.02rem] cursor-pointer">Help</label>
                     </router-link>
                 </div>
