@@ -6,7 +6,7 @@
                     Products Information
                 </h1>
             </div>
-            <div class="flex gap-[1.38rem] mt-[1.88rem]">
+            <div class="flex flex-col lg:flex-row gap-[1.38rem] mt-[1.88rem]">
                 <div class="flex flex-col gap-4">
                     <label class="text-[#000] font-poppins text-base font-normal">
                         Title

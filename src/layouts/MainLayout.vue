@@ -1,8 +1,7 @@
 <template>
-    <div class="flex h-[100dvh] overflow-hidden">
+    <div class="flex h-[100dvh] overflow-auto">
         <Sidebar :sidebarOpen="sidebarOpen" @close-sidebar="sidebarOpen = false" />
-
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-full h-full">
             <Header @toggle-sidebar="sidebarOpen = !sidebarOpen" />
             <slot></slot>
         </div>
