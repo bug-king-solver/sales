@@ -33,19 +33,30 @@ describe('fetchHelper', () => {
         expect(result).toEqual({ data: 'test data' });
     });
 
-    // Test for a failed API call
-    it('should throw an error on failed fetch', async () => {
+    // Test for fetching a single product
+    it('should return a single product data when fetching by ID', async () => {
+        const productId = '123'; // Example product ID
+        const mockProductData = { id: productId, name: 'Test Product', price: 100 };
+        const mockJsonPromise = Promise.resolve(mockProductData);
         const mockFetchPromise = Promise.resolve({
-            ok: false,
-            text: () => Promise.resolve('Network response was not ok'),
+            ok: true,
+            json: () => mockJsonPromise,
         });
 
         // Mock the global fetch function
         global.fetch = vi.fn().mockImplementation(() => mockFetchPromise);
 
-        const url = 'https://dummyjson.com/products';
+        const url = `https://dummyjson.com/products/${productId}`;
+        const result = await fetchHelper(url);
+        // Check if fetch was called correctly
+        expect(global.fetch).toHaveBeenCalledTimes(1);
+        expect(global.fetch).toHaveBeenCalledWith(url, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            body: null,
+        });
 
-        // Check if fetchHelper throws an error as expected
-        await expect(fetchHelper(url)).rejects.toThrow('Network response was not ok');
+        // Check if the result matches the mocked product data
+        expect(result).toEqual(mockProductData);
     });
 });
