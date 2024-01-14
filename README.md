@@ -1,18 +1,58 @@
-# Vue 3 + TypeScript + Vite
+# Sales Project
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is a Vue.js 3 application implementing a responsive dashboard page, with functionality to fetch and display products, and perform searches and sorting on product data. The layout adapts to various screen sizes, offering a clean, user-friendly interface.
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Responsive Dashboard**: Adapts to every screen size, based on the provided Figma design.
+- **Products Display**: Fetches and displays products with fields like title, category, brand, price, stock, and rating.
+- **Search Functionality**: Includes input fields for searching products by title and brand.
+- **Sorting**: Sort functionality for the title and brand columns.
+- **Product Detail View**: Clickable product titles redirecting to a detailed view of the product.
+- **Technical Stack**: Vue 3, Vite, TypeScript, and Vitest.
 
-## Type Support For `.vue` Imports in TS
+## Installation
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+To set up the project locally, follow these steps:
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+1. Clone the repository:
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+   ```bash
+   git clone https://github.com/bug-king-solver/sales
+   cd sales
+   ```
+
+2. Install Dependencies
+   ```bash
+   yarn install
+   ```
+
+## Usage
+
+To start the development server:
+
+```bash
+yarn dev
+```
+
+This will launch the project at `http://localhost:5173`.
+
+## Building for Production
+
+To create a production build, use:
+
+```bash
+yarn build
+```
+
+## Running Tests
+
+Execute unit tests with Vitest:
+
+```bash
+yarn test
+```
+
+## Fetch Helper
+
+A custom `fetchHelper` function is utilized for API requests. It is typesafe and enhances the default fetch functionality. Unit tests ensure its reliability.
